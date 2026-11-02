@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме | Якимчук Іван</title>
+    
+    <!-- Зовнішні стилі -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Внутрішні стилі -->
+    <style>
+        .status-badge {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: #1e40af;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            margin-top: 8px;
+            border: 1px solid #bfdbfe;
+        }
+        .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body class="light-theme">
+    <div class="page-container">
+        <!-- Шапка з перемикачем теми -->
+        <header id="main-header">
+            <div class="header-top">
+                <div>
+                    <h1>Якимчук Іван</h1>
+                    <p class="subtitle">Junior Developer / Початківець у розробці</p>
+                    <span class="status-badge" style="background-color: #ecfdf5; color: #047857; border-color: #a7f3d0;">
+                        ● Відкритий до нових пропозицій та практики
+                    </span>
+                </div>
+                <!-- Кнопка розумного/ручного перемикання теми -->
+                <button id="themeToggleBtn" class="theme-toggle-btn" title="Перемкнути тему">
+                    <span id="themeIcon">🌙</span> <span id="themeText">Темна тема</span>
+                </button>
+            </div>
+
+            <div class="contacts-wrapper">
+                <a class="contact-link" href="mailto:ivan.yakymchuk@example.com">
+                    ✉️ ivan.yakymchuk@example.com
+                </a>
+                <span>|</span>
+                <a class="contact-link" href="https://github.com/VanayPl" target="_blank" rel="noopener noreferrer">
+                    🔗 github.com/VanayPl
+                </a>
+            </div>
+        </header>
+
+        <main class="grid-layout">
+            <section id="about-section" class="card card-full-width">
+                <h2>Про мене</h2>
+                <p>
+                    Вмотивований розробник-початківець із досвідом написання базових алгоритмів, 
+                    роботи з Git та створення вебінтерфейсів. Прагну розвиватися в напрямку сучасної фронтенд-розробки.
+                </p>
+            </section>
+
+            <section class="card">
+                <h2>Освіта та практичний досвід</h2>
+                <ul class="timeline-list">
+                    <li>
+                        <strong>Поглиблене вивчення інформатики в ліцеї (2022 — 2026):</strong>
+                        <p>4 роки системного вивчення алгоритмів, структур даних та основ комп'ютерних наук.</p>
+                    </li>
+                    <li>
+                        <strong>Лабораторний практикум із веброзробки (2026):</strong>
+                        <p>Створення семантичної структури вебсторінок на HTML5, інтерактивність з JavaScript та перенесення на React + Vite.</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>Технічні навички</h2>
+                <div class="skills-grid">
+                    <span class="skill-tag">JavaScript (ES6+)</span>
+                    <span class="skill-tag">Fetch API & Async/Await</span>
+                    <span class="skill-tag">HTML5 & Семантика</span>
+                    <span class="skill-tag">CSS3 (Flexbox & Grid)</span>
+                    <span class="skill-tag">React.js & Vite</span>
+                    <span class="skill-tag">Git & GitHub</span>
+                </div>
+            </section>
+
+            <!-- 2. Динамічний вміст із сервера (Варіант 28) -->
+            <section class="card card-full-width reviews-section">
+                <div class="reviews-header">
+                    <h2>Відгуки попередніх роботодавців</h2>
+                    <span class="api-badge">JSONPlaceholder API</span>
+                </div>
+                <div id="reviewsLoader" class="loader">
+                    ⏳ Завантаження відгуків із сервера...
+                </div>
+                <div id="reviewsContainer" class="reviews-grid"></div>
+            </section>
+        </main>
+
+        <!-- 1. Футер із системною інформацією з localStorage -->
+        <footer>
+            <p>&copy; 2026 Якимчук Іван. Усі права захищено.</p>
+            <div id="systemInfoBox" class="system-info-box">
+                <div class="system-info-title">💻 Системна інформація клієнта (збережено в localStorage):</div>
+                <div id="systemInfoText">Завантаження інформації...</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 3. Модальне вікно форми зворотного зв'язку (показ через 1 хв) -->
+    <div id="contactModal" class="modal-backdrop hidden">
+        <div class="modal-window">
+            <button id="closeModalBtn" class="close-modal-btn" aria-label="Закрити">&times;</button>
+            <div class="modal-header">
+                <span class="modal-tag">Форма зв'язку</span>
+                <h3>Зворотний зв'язок</h3>
+                <p>Ви перебуваєте на сайті вже 1 хвилину! Будемо раді отримати ваше повідомлення.</p>
+            </div>
+            <form id="contactForm" action="https://formspree.io/f/xvgzeykw" method="POST">
+                <div class="form-group">
+                    <label for="userName">Ім'я:</label>
+                    <input type="text" id="userName" name="name" required placeholder="Іван Якимчук">
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">Email:</label>
+                    <input type="email" id="userEmail" name="email" required placeholder="ivan.yakymchuk@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="userPhone">Номер телефону:</label>
+                    <input type="tel" id="userPhone" name="phone" required placeholder="+380982593639">
+                </div>
+                <div class="form-group">
+                    <label for="userMessage">Текст повідомлення у довільній формі:</label>
+                    <textarea id="userMessage" name="message" rows="3" required placeholder="Ваше повідомлення чи пропозиція..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Надіслати</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Підключення JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

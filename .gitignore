@@ -1,0 +1,16 @@
+# Node
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+*.local
+
+# Reports & binaries
+*.docx
+create_report.py
+lp_logo.png
+extracted_media/
+
+# OS files
+Thumbs.db
+.DS_Store
